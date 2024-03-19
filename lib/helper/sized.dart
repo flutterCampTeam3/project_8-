@@ -14,3 +14,28 @@ const gapW40 = SizedBox(height: 40);
 const gapW12 = SizedBox(height: 12);
 const gapW20 = SizedBox(height: 20);
 const gapW5 = SizedBox(height: 5);
+
+SizedBox sizedBoxHeight250 = const SizedBox(
+  height: 250,
+);
+SizedBox sizedBoxH10 = const SizedBox(
+  height: 10,
+);
+SizedBox sizedBoxH20 = const SizedBox(
+  height: 20,
+);
+SizedBox sizedBoxh50 = const SizedBox(
+  height: 50,
+);
+SizedBox sizedBoxh35 = const SizedBox(
+  height: 35,
+);
+SizedBox sizedBoxh30 = const SizedBox(
+  height: 30,
+);
+SizedBox sizedBoxh40 = const SizedBox(
+  height: 40,
+);
+SizedBox sizedBoxh60 = const SizedBox(
+  height: 60,
+);
