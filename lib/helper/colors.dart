@@ -11,6 +11,9 @@ Color text1 = const Color.fromARGB(255, 147, 152, 175);
 Color icon = const Color.fromARGB(255, 132, 131, 129);
 Color whit = Colors.white;
 Color black = Colors.black;
+Color teal =const Color(0xff3DAF96);
+Color gray =const Color(0xff7F7A7A);
+
 
 
 
