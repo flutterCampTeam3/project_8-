@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_8/data/service/supabase_configration.dart';
-import 'package:project_8/pages/splach_page.dart';
+import 'package:project_8/pages/splach%20page/splach_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
