@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_8/data/service/supabase_configration.dart';
 import 'package:project_8/helper/colors.dart';
 import 'package:project_8/pages/HomePage/home_page.dart';
+import 'package:project_8/pages/MedPage/med_page.dart';
 
 import 'pages/NavBarPage/bootom_bar_bar.dart';
 
@@ -19,7 +20,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       theme: ThemeData(
-       bottomAppBarTheme: BottomAppBarTheme(color: whit)
+        
+       bottomAppBarTheme: BottomAppBarTheme(color: whit),
       ),
       debugShowCheckedModeBanner: false,
       home:const BottomBarScreen()

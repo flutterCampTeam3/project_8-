@@ -4,12 +4,18 @@ import 'package:project_8/helper/sized.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({
-    super.key,required this.nameMed,required this.time,required this.condition,required this.conditionColor,
+    super.key,required this.nameMed,required this.time, this.condition, this.conditionColor,this.medIcons = false,  this.done=true, 
   });
+  //Home Page Requirds:
 final nameMed;
 final time ;
 final condition;
 final conditionColor;
+ //Med Page Requirds:
+final bool medIcons;
+final bool done;
+
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -32,7 +38,7 @@ final conditionColor;
                 children: [
                   gapH5,
                   Text(
-                    nameMed,
+                    nameMed, //Name Med
                     style: TextStyle(
                       color: black,
                       fontSize: 15,
@@ -40,38 +46,73 @@ final conditionColor;
                     ),
                   ),
                   gapH5,
-                   Padding(
-                    padding: EdgeInsets.only(right: 40),
-                    child: Text(
-                      time,
-                      style: TextStyle(fontSize: 13),
+                   Row(
+                     children: [
+                       Padding(
+                        padding: const EdgeInsets.only(right: 40),
+                        child: Text(
+                          time,//Time Med
+                          style: const TextStyle(fontSize: 13),
+                        ),
                     ),
-                  )
+
+                          (medIcons)?
+               //حالة اخذ الدواء
+               (done)? 
+                   const Text(
+                     ". تم",//Done or not Med
+                     style: TextStyle(fontSize: 13),
+                   ) 
+                   :
+                    const Text(
+                      ". لم تتم",//Done or not Med
+                      style: TextStyle(fontSize: 13),
+                    ): SizedBox(),               
+                     ],
+                   ),
+ 
                 ],
               ),
-              gapWe20,
-              gapWe20,
+            
+              gapWe10,
               gapWe20,
               gapWe20,
               gapWe20,
               //حالة اخذ الدواء
-              Container(
-                height: 10,
-                width: 10,
-                decoration: BoxDecoration(
-                  color: conditionColor,
-                  borderRadius: BorderRadius.circular(10)
-                ),
-              ),
-              gapWe5,
+
+            (medIcons)? Row(
+              
+              children: [ 
+              
+                gapWe40,
+                Icon(Icons.delete,color:red ,),
+                gapWe5,
+                Image.asset("assets/edit.png"),
+              ],
+            ) :  
+            Row(
+              children: [
+                Container(
+                    height: 10,
+                    width: 10,
+                    decoration: BoxDecoration(
+                      color: conditionColor, //Color Med
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                  ),
+                  gapWe5,
               Text(
-                condition,
+                condition, //Condition Med
                 style: TextStyle(
                   color: black,
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
                 ),
               )
+              ],
+            ), 
+             
+              
             ],
           ),
         ),

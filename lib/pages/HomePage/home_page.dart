@@ -113,7 +113,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   gapH15,
                   
-                  CardWidget(nameMed: "الزنك", time: "5:30 ص", condition: "تم اخذ الدواء", conditionColor: teal,),
+                  CardWidget(nameMed: "الزنك", time: "5:30 ص", condition: "تم اخذ الدواء", conditionColor: teal,medIcons: false,done: false,),
 
 
                   

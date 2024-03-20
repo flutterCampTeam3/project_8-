@@ -14,6 +14,7 @@ Color black = Colors.black;
 Color teal =const Color(0xff3DAF96);
 Color gray =const Color(0xff7F7A7A);
 Color lightGray = const Color(0xffF8F8F6);
+Color red =  Colors.red;
 
 
 
