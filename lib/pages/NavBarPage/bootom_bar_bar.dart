@@ -1,13 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:project_8/helper/colors.dart';
-import 'package:project_8/pages/add_page.dart';
-import 'package:project_8/pages/scan.dart';
+import 'package:project_8/helper/extintion.dart';
+import 'package:project_8/pages/AddPage/add_page.dart';
+import 'package:project_8/pages/ScanPage/scan.dart';
 
-import 'ask_page.dart';
+import '../AskPage/ask_page.dart';
 
-import 'home_page.dart';
-import 'med_page.dart';
+import '../HomePage/home_page.dart';
+import '../MedPage/med_page.dart';
 
 class BottomBarScreen extends StatefulWidget {
   const BottomBarScreen({super.key});
@@ -33,14 +34,15 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     ];
    
   final PageStorageBucket bucket =PageStorageBucket();
-  Widget currentScreen =const AddPage();
+  Widget currentScreen =const HomePage();
 
 
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-     body: PageStorage(
+     body: 
+     PageStorage(
       bucket: bucket,
       child: currentScreen,
       ),
@@ -58,7 +60,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   ),
   child: FloatingActionButton(
     onPressed: () {
-      //------TODO Here Add Page
+    context.pushTo(view: const AddPage());
     },
     backgroundColor: teal,
     child: Icon(Icons.add, color: whit), 
@@ -89,7 +91,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                     onPressed:() {
                       setState(() {
 
-                        currentScreen=const AddPage();
+                        currentScreen=const HomePage();
                         currentTap=0;
                         
                       });
@@ -112,7 +114,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                     onPressed:() {
                       setState(() {
 
-                        currentScreen=const AskPage();
+                        currentScreen=const MedPage();
                         currentTap=1;
                         
                       });
@@ -147,7 +149,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                     onPressed:() {
                       setState(() {
 
-                        currentScreen=const AddPage();
+                        currentScreen=const AskPage();
                         currentTap=2;
                         
                       });
@@ -170,7 +172,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                     onPressed:() {
                       setState(() {
 
-                        currentScreen=const AskPage();
+                        currentScreen=const ScanPage();
                         currentTap=3;
                         
                       });

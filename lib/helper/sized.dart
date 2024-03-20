@@ -14,3 +14,8 @@ const gapW40 = SizedBox(height: 40);
 const gapW12 = SizedBox(height: 12);
 const gapW20 = SizedBox(height: 20);
 const gapW5 = SizedBox(height: 5);
+
+const gapWe5 = SizedBox(width: 5);
+const gapWe10 = SizedBox(width: 10);
+const gapWe15 = SizedBox(width: 15);
+const gapWe20 = SizedBox(width: 20);

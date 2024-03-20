@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_8/data/service/supabase_configration.dart';
 import 'package:project_8/helper/colors.dart';
-import 'package:project_8/pages/home_page.dart';
+import 'package:project_8/pages/HomePage/home_page.dart';
 
-import 'pages/bootom_bar_bar.dart';
+import 'pages/NavBarPage/bootom_bar_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
