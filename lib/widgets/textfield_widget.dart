@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project_8/helper/sized.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  TextFieldWidget({super.key, required this.text});
-  String text;
+  const TextFieldWidget({super.key, required this.text});
+  final String text;
 
   @override
   Widget build(BuildContext context) {

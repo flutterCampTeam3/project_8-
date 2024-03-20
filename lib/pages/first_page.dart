@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_8/helper/colors.dart';
 import 'package:project_8/helper/sized.dart';
-import 'package:project_8/pages/signin_page.dart';
+import 'package:project_8/pages/signIn%20page/signin_page.dart';
 import 'package:project_8/widgets/button_widget.dart';
 
 

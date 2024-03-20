@@ -4,7 +4,6 @@ import 'package:project_8/helper/sized.dart';
 import 'package:project_8/widgets/button_widget.dart';
 import 'package:project_8/widgets/textfield_widget.dart';
 
-
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
@@ -51,13 +50,13 @@ class SignUp extends StatelessWidget {
                   ]),
             ),
           ),
-          TextFieldWidget(
+          const TextFieldWidget(
             text: "الاسم",
           ),
-          TextFieldWidget(
+          const TextFieldWidget(
             text: "الايميل",
           ),
-          TextFieldWidget(
+          const TextFieldWidget(
             text: "كلمة المرور",
           ),
           sizedBoxh30,

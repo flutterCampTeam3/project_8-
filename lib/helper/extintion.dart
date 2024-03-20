@@ -30,4 +30,45 @@ extension Screen on BuildContext {
           );
         });
   }
+
+    showSuccessSnackBar(BuildContext context, String msg,) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+      behavior: SnackBarBehavior.floating,
+      content: Text(
+        msg,
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      backgroundColor: Colors.green,
+    ));
+  }
+
+  showErrorSnackBar(BuildContext context, String msg,) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+      behavior: SnackBarBehavior.floating,
+      content: Text(
+        msg,
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      backgroundColor: Colors.red,
+    ));
+  }
+
+    popNav() {
+    Navigator.pop(this);
+  }
+
+    // Push and remove
+  pushAndRemove(Widget screen) {
+    Navigator.pushAndRemoveUntil(this,
+        MaterialPageRoute(builder: (context) => screen), (route) => false);
+  }
+  
 }

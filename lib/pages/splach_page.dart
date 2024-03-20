@@ -5,17 +5,15 @@ import 'package:project_8/helper/sized.dart';
 import 'package:project_8/pages/first_page.dart';
 
 
-class SplachPage extends StatefulWidget {
-  const SplachPage({super.key});
-
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
   @override
-  State<SplachPage> createState() => _SplachPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplachPageState extends State<SplachPage> {
+class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(const Duration(seconds: 2), () {
@@ -26,8 +24,6 @@ class _SplachPageState extends State<SplachPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
-
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values);
     super.dispose();

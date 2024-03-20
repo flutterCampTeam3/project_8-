@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
-  ButtonWidget(
+  const ButtonWidget(
       {super.key,
       required this.backgroundColor,
       required this.text,
       required this.textColor,
       required this.onPressed});
-  String text;
-  Color backgroundColor;
-  Color textColor;
-  VoidCallback onPressed;
+  final String text;
+  final Color backgroundColor;
+  final Color textColor;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +25,11 @@ class ButtonWidget extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-                color: textColor, fontWeight: FontWeight.w900, fontSize: 20),
+              fontFamily: 'Poppins',
+                color: textColor, 
+                fontWeight: FontWeight.w900, 
+                fontSize: 20,
+                ),
           )),
     );
   }
