@@ -1,5 +1,5 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:project_8/data/data_layer.dart';
+import 'package:project_8/data/service/supabase_services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
@@ -14,5 +14,5 @@ databaseConfig() async {
 Future<void> setup() async {
   await GetStorage.init();
   GetIt.instance;
-  GetIt.I.registerSingleton<AllData>(AllData());
+  GetIt.I.registerSingleton<DBService>(DBService());
 }

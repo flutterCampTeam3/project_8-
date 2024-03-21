@@ -5,3 +5,4 @@ sealed class SplashEvent {}
 
 class CheckSessionAvailabilityEvent extends SplashEvent {}
 
+
