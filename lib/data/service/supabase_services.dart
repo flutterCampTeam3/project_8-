@@ -32,6 +32,24 @@ class DBService {
     final response = await supabase.auth.resetPasswordForEmail(email);
     return response;
   }
+
+    // ------ Data Services -----
+
+  
+  // ------ User data Services -----
+
+  // Get Current User Id
+  Future getCurrentUser() async {
+    final currentUser = supabase.auth.currentUser!.id;
+    return currentUser;
+  }
+
+  // Get User Profile Data
+  Future getUserProfilee({required String id}) async {
+    final prifileData =
+        await supabase.from('profiles').select().eq('id', id).single();
+    return prifileData;
+  }
 }
 
 //------------------- if you need to use it
