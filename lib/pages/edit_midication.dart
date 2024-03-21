@@ -7,14 +7,14 @@ import 'package:project_8/widgets/custom_widget.dart';
 import 'package:project_8/widgets/dropdown_Container_widget.dart';
 import 'package:time_picker_spinner/time_picker_spinner.dart';
 
-class AddMedicationPage extends StatefulWidget {
-  const AddMedicationPage({super.key});
+class EditMedicationPage extends StatefulWidget {
+  const EditMedicationPage({super.key});
 
   @override
-  State<AddMedicationPage> createState() => _AddMedicationPageState();
+  State<EditMedicationPage> createState() => _EditMedicationPageState();
 }
 
-class _AddMedicationPageState extends State<AddMedicationPage> {
+class _EditMedicationPageState extends State<EditMedicationPage> {
   DateTime dateTime = DateTime.now();
   String selectedTime = " 00:00 ص";
   @override
@@ -26,12 +26,12 @@ class _AddMedicationPageState extends State<AddMedicationPage> {
         ),
         body: SafeArea(
             child: Padding(
-           padding: const EdgeInsets.only(top: 30, right: 30, left: 30),
+          padding: const EdgeInsets.only(top: 30, right: 30, left: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "إضافة دواء",
+                "تعديل الدواء",
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               sizedBoxh50,
@@ -145,9 +145,17 @@ class _AddMedicationPageState extends State<AddMedicationPage> {
               ButtonWidget(
                 backgroundColor: textfieldGreenColor,
                 onPressed: () {},
-                text: "إنهاء",
+                text: "حفظ",
                 textColor: whiteColor,
-              )
+              ),
+              sizedBoxH10,
+              ButtonWidget(
+                backgroundColor: whiteColor,
+                onPressed: () {},
+                text: "حذف",
+                textColor: textgreyColor,
+                borderColor: textfieldGreenColor,
+              ),
             ],
           ),
         )));

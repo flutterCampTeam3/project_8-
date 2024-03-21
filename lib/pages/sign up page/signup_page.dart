@@ -4,6 +4,7 @@ import 'package:project_8/helper/sized.dart';
 import 'package:project_8/widgets/button_widget.dart';
 import 'package:project_8/widgets/textfield_widget.dart';
 
+
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
