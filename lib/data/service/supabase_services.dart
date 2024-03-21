@@ -2,6 +2,7 @@
 
 import 'package:get_it/get_it.dart';
 import 'package:project_8/data/data_layer.dart';
+import 'package:project_8/data/model/medicattion_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class DBService {
@@ -33,14 +34,14 @@ class DBService {
     return response;
   }
 
-    // ------ Data Services -----
+  // ------ Data Services -----
 
-  
   // ------ User data Services -----
 
   // Get Current User Id
   Future getCurrentUser() async {
     final currentUser = supabase.auth.currentUser!.id;
+    locator.id = currentUser;
     return currentUser;
   }
 
@@ -49,6 +50,56 @@ class DBService {
     final prifileData =
         await supabase.from('profiles').select().eq('id', id).single();
     return prifileData;
+  }
+
+  // ------ medication data Services -----
+
+  // Get User Medications Data
+  Future getMedications() async {
+    final cvData = await supabase
+        .from('medication')
+        .select('*')
+        .match({'userId': locator.id});
+    final List<MedicationModel> medication = [];
+    medication.add(MedicationModel.fromJson(cvData[0]));
+    return medication;
+  }
+
+  // Add Medications to Data
+  Future addMedications({
+    required String name,
+    required int pills,
+    required int days,
+  }) async {
+    await supabase.from('medication').insert(
+      {
+        "medicament_name": name,
+        "pills": pills,
+        "days": days,
+        "user_id": getCurrentUser(),
+      },
+    );
+  }
+
+  // Edit User Medications Data
+  Future editMedications({
+    required String name,
+    required int pills,
+    required int days,
+  }) async {
+    await supabase.from('medication').update(
+      {
+        "medicament_name": name,
+        "pills": pills,
+        "days": days,
+        "user_id": getCurrentUser(),
+      },
+    ).match({'userId': locator.id});
+  }
+
+  // Delete Medication
+  Future deleteMedications({required id}) async {
+    await supabase.from('medication').delete().match({'id': id});
   }
 }
 
