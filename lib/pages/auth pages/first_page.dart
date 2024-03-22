@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_8/helper/colors.dart';
+import 'package:project_8/helper/extintion.dart';
 import 'package:project_8/helper/sized.dart';
-import 'package:project_8/pages/signIn%20page/signin_page.dart';
+import 'package:project_8/pages/auth%20pages/sign%20up%20page/signup_page.dart';
+import 'package:project_8/pages/auth%20pages/signIn%20page/signin_page.dart';
 import 'package:project_8/widgets/button_widget.dart';
 
 class FirstPage extends StatelessWidget {
@@ -38,18 +40,17 @@ class FirstPage extends StatelessWidget {
                     textColor: whiteColor,
                     backgroundColor: darkGreen,
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SigninPage()));
+                      context.pushAndRemove(const SigninPage());
                     },
                   ),
                   sizedBoxh30,
                   ButtonWidget(
-                    text: "  تسجيل الدخول كزائر",
+                    text: "  تسجيل حساب جديد",
                     textColor: blackColor,
                     backgroundColor: whiteColor,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pushAndRemove(const SignUp());
+                    },
                   ),
                 ]),
               ),

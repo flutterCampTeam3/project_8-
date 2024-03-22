@@ -1,25 +1,71 @@
 // import 'dart:io';
 
-import 'package:get_it/get_it.dart';
-import 'package:project_8/data/data_layer.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:project_8/data/model/medicattion_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class DBService {
+  // ------ Data Storage -----
+
+  final box = GetStorage();
+  String token = '';
+  String id = '';
+
+  DBService() {
+    getToken();
+    getId();
+  }
+
+  addToken() async {
+    if (token.isNotEmpty) {
+      await box.write("token", token);
+    }
+    box.save();
+  }
+
+  addId() async {
+    if (id.isNotEmpty) {
+      await box.write("Id", id);
+    }
+    box.save();
+  }
+
+  getToken() {
+    if (box.hasData("token")) {
+      if (token.isEmpty) {
+        token = box.read("token");
+      }
+    }
+  }
+
+  getId() {
+    if (box.hasData("Id")) {
+      if (token.isEmpty) {
+        id = box.read("Id");
+      }
+    }
+  }
+
   final supabase = Supabase.instance.client;
-  final locator = GetIt.I.get<AllData>();
 
 //--- SignUp func
-  Future SignUp({required String email, required String password}) async {
-    await supabase.auth.signUp(email: email, password: password);
+  Future SignUp(
+      {required String email,
+      required String password,
+      required String userName}) async {
+    await supabase.auth.signUp(
+      data: {'Name': userName},
+      email: email,
+      password: password,
+    );
     // Send email verification
     await supabase.auth.resetPasswordForEmail(email);
   }
 
   Future SignIn({required String email, required String password}) async {
     await supabase.auth.signInWithPassword(email: email, password: password);
-    locator.token = supabase.auth.currentSession!.accessToken;
-    locator.addToken();
+    token = supabase.auth.currentSession!.accessToken;
+    addToken();
   }
 
   //Future SignOut
@@ -38,15 +84,21 @@ class DBService {
 
   // ------ User data Services -----
 
+  // Get Current session info
+  Future getCurrentSession() async {
+    final session = supabase.auth.currentSession;
+    return session;
+  }
+
   // Get Current User Id
   Future getCurrentUser() async {
     final currentUser = supabase.auth.currentUser!.id;
-    locator.id = currentUser;
+    id = currentUser;
     return currentUser;
   }
 
   // Get User Profile Data
-  Future getUserProfilee({required String id}) async {
+  Future getUserProfilee() async {
     final prifileData =
         await supabase.from('profiles').select().eq('id', id).single();
     return prifileData;
@@ -56,10 +108,8 @@ class DBService {
 
   // Get User Medications Data
   Future getMedications() async {
-    final cvData = await supabase
-        .from('medication')
-        .select('*')
-        .match({'userId': locator.id});
+    final cvData =
+        await supabase.from('medication').select('*').match({'userId': id});
     final List<MedicationModel> medication = [];
     medication.add(MedicationModel.fromJson(cvData[0]));
     return medication;
@@ -94,12 +144,12 @@ class DBService {
         "days": days,
         "user_id": getCurrentUser(),
       },
-    ).match({'userId': locator.id});
+    ).match({'userId': id});
   }
 
   // Delete Medication
-  Future deleteMedications({required id}) async {
-    await supabase.from('medication').delete().match({'id': id});
+  Future deleteMedications({required midId}) async {
+    await supabase.from('medication').delete().match({'id': midId});
   }
 }
 

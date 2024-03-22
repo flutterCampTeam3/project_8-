@@ -15,11 +15,12 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   FutureOr<void> createAccount(
       CreateAccountEvent event, Emitter<SignUpState> emit) async {
     try {
-      emit(LoadingState());
-      await DBService().SignUp(email: event.email, password: event.password);
-      emit(SuccessState());
+      emit(LoadingSignUpState());
+      await DBService().SignUp(
+          email: event.email, password: event.password, userName: event.name);
+      emit(SuccessSignUpState());
     } catch (error) {
-      emit(ErrorState());
+      emit(ErrorSignUpState());
     }
   }
 }
