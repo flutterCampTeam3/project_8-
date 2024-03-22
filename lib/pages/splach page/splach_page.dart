@@ -5,7 +5,6 @@ import 'package:project_8/helper/colors.dart';
 import 'package:project_8/helper/extintion.dart';
 import 'package:project_8/helper/sized.dart';
 import 'package:project_8/pages/auth%20pages/first_page.dart';
-import 'package:project_8/pages/app%20pages/home_page.dart';
 import 'package:project_8/pages/auth%20pages/signIn%20page/signin_page.dart';
 import 'package:project_8/pages/splach%20page/bloc/splash_bloc.dart';
 
@@ -44,7 +43,7 @@ class _SplashPageState extends State<SplashPage> {
           listener: (context, state) {
             if (state is SessionAvailabilityStat) {
               if (state.isAvailable != null) {
-                context.pushAndRemove(const HomePage());
+                context.pushAndRemove( BottomBarScreen());
               } else {
                 context.pushAndRemove(const SigninPage());
               }
