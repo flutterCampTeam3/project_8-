@@ -1,9 +1,9 @@
 class MedicationModel {
   late final String medicationId;
-  late final String createdAt;
+  late final DateTime createdAt;
   late final String medicationName;
-  late final String pills;
-  late final String days;
+  late final int pills;
+  late final int days;
   late final String userId;
 
   MedicationModel({
