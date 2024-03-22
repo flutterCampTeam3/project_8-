@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../helper/colors.dart';
-import '../../helper/sized.dart';
-import '../../widgets/card_widget.dart';
+import 'package:project_8/helper/colors.dart';
+import 'package:project_8/helper/sized.dart';
+import 'package:project_8/widgets/card_widget.dart';
 
 class MedPage extends StatelessWidget {
   const MedPage({super.key});

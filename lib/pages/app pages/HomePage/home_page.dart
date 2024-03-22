@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_8/helper/colors.dart';
 import 'package:project_8/helper/extintion.dart';
-import '../../helper/sized.dart';
-import '../../widgets/card_widget.dart';
+import 'package:project_8/helper/sized.dart';
+import 'package:project_8/widgets/card_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

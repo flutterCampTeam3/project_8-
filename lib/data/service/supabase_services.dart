@@ -91,14 +91,14 @@ class DBService {
   }
 
   // Get Current User Id
-  Future getCurrentUser() async {
+  Future<String> getCurrentUser() async {
     final currentUser = supabase.auth.currentUser!.id;
     id = currentUser;
     return currentUser;
   }
 
   // Get User Profile Data
-  Future getUserProfilee() async {
+  Future<Map<String, dynamic>> getUserProfilee() async {
     final prifileData =
         await supabase.from('profiles').select().eq('id', id).single();
     return prifileData;
@@ -107,12 +107,14 @@ class DBService {
   // ------ medication data Services -----
 
   // Get User Medications Data
-  Future getMedications() async {
-    final cvData =
+  Future<List<MedicationModel>> getMedications() async {
+    final medication =
         await supabase.from('medication').select('*').match({'userId': id});
-    final List<MedicationModel> medication = [];
-    medication.add(MedicationModel.fromJson(cvData[0]));
-    return medication;
+    final List<MedicationModel> medications = [];
+    for (var element in medication) {
+      medications.add(MedicationModel.fromJson(element));
+    }
+    return medications;
   }
 
   // Add Medications to Data
@@ -135,19 +137,26 @@ class DBService {
   }
 
   // Edit User Medications Data
-  Future editMedications({required MedicationModel medication}) async {
+  Future editMedications({
+    required String name,
+    required int pills,
+    required int days,
+    required bool before,
+    required MedicationModel medication,
+  }) async {
     await supabase.from('medication').update(
       {
-        "medicament_name": medication.medicationName,
-        "pills": medication.pills,
-        "days": medication.days,
+        "medicament_name": name,
+        "pills": pills,
+        "days": days,
         "user_id": getCurrentUser(),
-        "before": false, // لازم تتعدل
-        "isCompleted": false // هذي كمان
+        "before": before, // لازم تتعدل
+        "isCompleted": medication.isCompleted // هذي كمان
       },
     ).match({'userId': id});
   }
 
+  // Edit User Medications Data
   Future editIsCompleted(
       {required MedicationModel medication, required bool isCompleted}) async {
     await supabase.from('medication').update(
@@ -155,8 +164,8 @@ class DBService {
         "medicament_name": medication.medicationName,
         "pills": medication.pills,
         "days": medication.days,
-        "user_id": getCurrentUser(),
-        "before": false, // لازم تتعدل
+        "user_id": medication.userId,
+        "before": medication.before, // لازم تتعدل
         "isCompleted": isCompleted // هذي كمان
       },
     ).match({'userId': id});

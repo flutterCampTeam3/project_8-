@@ -16,7 +16,7 @@ class MedicationModel {
     required this.days,
     required this.userId,
     required this.before,
-    required this.isCompleted, 
+    required this.isCompleted,
   });
 
   factory MedicationModel.fromJson(Map<String, dynamic> json) {
@@ -28,7 +28,7 @@ class MedicationModel {
       days: json['days'] ?? 0,
       userId: json['user_id'],
       before: json['before'] ?? false,
-      isCompleted: json['is_completed'] ?? false, 
+      isCompleted: json['is_completed'] ?? false,
     );
   }
 
@@ -41,53 +41,7 @@ class MedicationModel {
       'days': days,
       'user_id': userId,
       'before': before,
-      'is_completed': isCompleted, 
+      'is_completed': isCompleted,
     };
   }
 }
-
-
-
-/////-----------------
-/*
-
-class MedicationModel {
-  late final String medicationId;
-  late final DateTime createdAt;
-  late final String medicationName;
-  late final int pills;
-  late final int days;
-  late final String userId;
-
-  MedicationModel({
-    required this.medicationId,
-    required this.createdAt,
-    required this.medicationName,
-    required this.pills,
-    required this.days,
-    required this.userId,
-  });
-
-  factory MedicationModel.fromJson(Map<String, dynamic> json) {
-    return MedicationModel(
-      medicationId: json['medication_id'],
-      createdAt: json['createdAt'],
-      medicationName: json['medication_name'],
-      pills: json['pills'],
-      days: json['days'],
-      userId: json['User_id'],
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'medication_id': medicationId,
-      'createdAt': createdAt,
-      'medication_name': medicationName,
-      'pills': pills,
-      'days': days,
-      'User_id': userId,
-    };
-  }
-}
-*/
