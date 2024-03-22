@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_8/data/service/supabase_configration.dart';
 import 'package:project_8/pages/splach%20page/splach_page.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await databaseConfig();
