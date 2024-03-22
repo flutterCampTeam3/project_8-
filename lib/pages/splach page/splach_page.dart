@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_8/helper/colors.dart';
 import 'package:project_8/helper/extintion.dart';
 import 'package:project_8/helper/sized.dart';
+import 'package:project_8/pages/NavBarPage/bootom_bar_bar.dart';
 import 'package:project_8/pages/auth%20pages/first_page.dart';
 import 'package:project_8/pages/auth%20pages/signIn%20page/signin_page.dart';
 import 'package:project_8/pages/splach%20page/bloc/splash_bloc.dart';

@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.4.0-99.1.beta <4.0.0
+  sdk: ^3.4.0-99.1.beta
 
 dependencies:
   flutter:
@@ -19,6 +19,7 @@ dependencies:
   time_picker_spinner: ^0.0.1
   intl: ^0.17.0
   google_fonts: ^6.2.1
+  flutter_background_service: ^5.0.5
 
 dev_dependencies:
   flutter_test:
